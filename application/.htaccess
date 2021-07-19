@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# Redirect non-www to www
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# Remove WWW from the url
+#RewriteCond %{HTTPS} !=on
+#RewriteCond %{HTTP_HOST} ^www.(.+)$ [NC]
+#RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# Optional to redirect trailing slashes
+#RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# Point all URI to codeigniter bootstrap except direct access to file or dir
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]

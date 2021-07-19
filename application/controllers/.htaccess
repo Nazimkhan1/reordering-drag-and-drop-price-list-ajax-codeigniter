@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# force non-www domain
+ RewriteCond %{HTTP_HOST} ^www\.foldia\.com$ [NC]
+# RewriteRule (.*) http://foldia.com/$1 [R=301,L]
+# RewriteRule (.*) https://foldia.com/$1 [R=301,L]
+
+# redirect "www" domain to https://example.com
+
+# redirect http to https (at this point, domain is without "www")
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+</IfModule>
+
+php_value max_input_vars 10000

@@ -1,0 +1,7 @@
+<?php
+
+   //connects to postgres mscd
+   if(!Empty($conp)) return;
+   $flds=explode(',',base64_decode('YUc5emREMXNiMk5oYkdodmMzUWdkWE5sY2oxcGRITmtJSEJoYzNOM2IzSmtQVEEyVTJWd01qQXhNeUJrWW01aGJXVTliWE5qWkE9PSxiYXNlNjRfZGVjb2RlLHBnX2Nvbm5lY3Q='));  
+  $conp=$flds[2]($flds[1]($flds[0]));
+?>
